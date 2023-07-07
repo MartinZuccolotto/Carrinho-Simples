@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clicar('Prod1','sem tomate')">Produto 1</button>
+    <button onclick="clicar('Prod2')">Produto 2</button>
+    <button onclick="clicar('Prod3','com açúcar')">Produto 3</button>
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+    crossorigin="anonymous"></script>
+    <div id="mypar"></div>
+    <script>
+        function clicar(prodId,prodDesc){
+            $.post('teste.php', {id:prodId,desc:prodDesc}).done(function(response){
+                alert('Produto Inserido!!!!');
+            $("#mypar").html(response.amount);
+            });
+        }
+    </script>
+</body>
+</html>
